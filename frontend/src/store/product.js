@@ -1,5 +1,4 @@
 import { create } from "zustand";
-import axios from "axios";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -32,10 +31,9 @@ export const useProductStore = create((set) => ({
       method: "DELETE",
     });
     const data = await res.json();
-    console.log(data);
     if (!data.success) return { success: false, message: "Unable to Delete" };
     set((state) => ({
-      products: state.products.filter((product) => product._id !== pid), //Update UI Immediately without refreshing the page
+      products: state.products.filter((product) => product._id !== pid),
     }));
     return { success: true, message: data.message };
   },
@@ -52,7 +50,6 @@ export const useProductStore = create((set) => ({
     if (!data.success)
       return { success: false, message: "Unable to Update Data !" };
     set((state) => ({
-      //Update UI Immediately without Refresh.
       products: state.products.map((product) =>
         product._id === pid ? data.data : product
       ),
