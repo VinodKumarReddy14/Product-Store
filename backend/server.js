@@ -11,7 +11,7 @@ const port = process.env.PORT;
 
 app.use(
   cors({
-    origin: "https://product-store-frontend.onrender.com",
+    origin: "https://product-store-frontend-ggxu.onrender.com",
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
