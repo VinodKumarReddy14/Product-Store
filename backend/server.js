@@ -9,7 +9,13 @@ const app = express();
 dotenv.config();
 const port = process.env.PORT;
 
-app.use(cors({ origin: "https://product-store-oa4k.onrender.com" }));
+app.use(
+  cors({
+    origin: "https://product-store-frontend.onrender.com",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
 
 app.use(express.json()); //middleware to parse the incoming data from requests.
 
